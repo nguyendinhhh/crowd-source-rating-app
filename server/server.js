@@ -17,5 +17,6 @@ app.use(cookieParser());
 require("./config/mongoose.config");
 require("./routes/user.routes")(app);
 require("./routes/poll.routes")(app);
+require("./routes/rating.routes")(app);
 
 app.listen(process.env.MY_PORT, () => console.log(`You are connected to port ${process.env.MY_PORT}`))

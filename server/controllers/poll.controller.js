@@ -83,7 +83,7 @@ module.exports = {
               console.log("Find Polls By Keyword Failed")
               res.json({message: "Error in findAllPollsByKeyword", error: err})
           });
-  },
+    },
 
     deletePoll: (req, res) => {
         Poll.deleteOne({_id: req.params.pollid})
@@ -130,7 +130,8 @@ module.exports = {
       
               return res.status(202).json(poll);
             } else {
-              res.json({message:"This user already voted"})
+              //res.json({message:"This user already voted"})
+              res.status(400).json({ message: "You already voted" });
             }
           } else {
             res.json({message:"Did not submit an answer"})
