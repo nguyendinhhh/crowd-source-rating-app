@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import {Router} from '@reach/router';
+import Home from './views/Home';
+import Login from './views/Login';
+import Register from './views/Register';
+import PollDetail from './views/PollDetail';
+import RatingDetail from './views/RatingDetail';
+import Manage from './views/Manage';
+import Create from './views/Create';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Home path = '/'/>
+        <Login path = '/login'/>
+        <Register path = '/register'/>
+        <PollDetail path ='/polldetail/:pollid'/>
+        <RatingDetail path ='/ratingdetail/:ratingid'/>
+        <Manage path ='/manage'/>
+        <Create path ='/create'/>
+      </Router>
     </div>
   );
 }
