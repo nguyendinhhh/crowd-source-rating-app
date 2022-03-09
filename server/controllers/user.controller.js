@@ -17,8 +17,9 @@ module.exports = {
                     user: newUser
                 });
             })
-            .catch((err)=>{
-                console.log("Registration Failed")
+                .catch((err) => {
+                console.log(err)
+                // console.log("Registration Failed")
                 res.status(400).json(err);
             })
 

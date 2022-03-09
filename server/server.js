@@ -6,20 +6,20 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const app = express();
 const path = require('path')
-const port = process.env.PORT || 8000
+const port = process.env.MY_PORT // || 8000
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true})); 
 app.use(cors({
     credentials: true,
-    origin: "http://localhost:8000"
+    origin: "http://localhost:3000"
 }))
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname,'build')))
 
-app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname,'build','index.html'))
-})
+// app.get('/', function (req, res) {
+//     res.sendFile(path.join(__dirname,'build','index.html'))
+// })
 
 require("./config/mongoose.config");
 require("./routes/user.routes")(app);
