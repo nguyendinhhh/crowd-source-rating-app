@@ -50,7 +50,7 @@ const Navbar = (props) => {
         return(
             <div className='navbar'>
                 <h1>Rate My SJSU</h1>
-                <div className='navbarButtons'>
+                <div className='navbarButton'>
                     <button onClick={goHome}>Go Home</button>
                     <button onClick={goCreate}>Create</button>
                     <button onClick={goManage}>Manage</button>
@@ -62,9 +62,9 @@ const Navbar = (props) => {
         return(
             <div className='navbar'>
                 <h1>Rate My SJSU</h1>
-                <div className='navbarButtons'>
-                    <button onClick={goHome}>Go Home</button>
-                    <button onClick={goLogIn}>Login</button>
+                <div className='navbarButton'>
+                    <button class='navbarButton navbarButton1' onClick={goHome}>Go Home</button>
+                    <button class='navbarButton navbarButton1' onClick={goLogIn}>Login</button>
                 </div>
             </div>
         )

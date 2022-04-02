@@ -1,8 +1,35 @@
 .navbar {
   display: flex;
+  color: white;
+  background-color: #0055A8;
+  font-family: Times;
+  font-size: 25px;
+  height: 100px;
+  padding: 5px;
+  text-align: center;
 }
 
-.navbarButtons{
+.navbarButton{
+  font-family: inherit;
+  background-color: inherit;
+  border: none;
+  color: white;
+  padding: 5px 20px;
+  text-align: right;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  transition-duration: 500ms;
   margin-left: auto;
   align-self: flex-end;
+}
+
+.navbarButton1 {
+  color: white;
+}
+
+.navbarButton1:hover {
+  background-color: #368ECC;
+  color: white; 
 }
