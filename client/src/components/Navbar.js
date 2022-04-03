@@ -1,9 +1,13 @@
 import { React, useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link, navigate} from '@reach/router';
+import { Link, navigate } from '@reach/router';
+import { theme, cn } from '../style.js';
+import { css } from '@emotion/css';
+// import logo from '../svg/sjsulogo.svg';
 
 const Navbar = (props) => {
 
+    const title = 'Rate My SJSU';
     const [user, setUser] = useState({});
 
     const goHome = () => { navigate("/") }
@@ -49,7 +53,16 @@ const Navbar = (props) => {
     if(Object.keys(user).length != 0){
         return(
             <div className='navbar'>
-                <h1>Rate My SJSU</h1>
+                {/* <div
+                    dangerouslySetInnerHTML={{ __html: logo }}
+                    className={css`
+                        svg {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    `}
+                ></div> */}
+                <h1 className={cn.h1}>{title}</h1>
                 <div className='navbarButtons'>
                     <button onClick={goHome}>Go Home</button>
                     <button onClick={goCreate}>Create</button>
@@ -61,7 +74,24 @@ const Navbar = (props) => {
     }else{
         return(
             <div className='navbar'>
-                <h1>Rate My SJSU</h1>
+                {/* <div
+                    dangerouslySetInnerHTML={{ __html: logo }}
+                    className={css`
+                        width: 20px;
+                        height: 20px;
+                        svg {
+                            width: 20px;
+                            height: 20px;
+                        }
+                    `}
+                ></div> */}
+                <h1 className={
+                    css`
+                        color: #0055A2;
+                        font-weight: bold;
+                        font-size: 50px;
+                    `
+                }>{title}</h1>
                 <div className='navbarButtons'>
                     <button onClick={goHome}>Go Home</button>
                     <button onClick={goLogIn}>Login</button>
@@ -72,4 +102,4 @@ const Navbar = (props) => {
     
 }
 
-export default Navbar 
+export default Navbar;
