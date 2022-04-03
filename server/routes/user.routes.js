@@ -8,4 +8,6 @@ module.exports = (app) => {
     app.get("/api/allUsers", UserController.findAllUsers);
     app.get("/api/users/secure", authenticate, UserController.getLoggedInUser);
     app.delete("/api/users/:userid", UserController.deleteUser);
+    app.post("/api/users/changepassword", UserController.changePassword);
+    app.get("/api/users/:sjsuid", UserController.getOneUser);
 };
