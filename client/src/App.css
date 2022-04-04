@@ -1,35 +1,71 @@
+button {
+  border-radius: 15px;
+}
+
+button:hover {
+  cursor:pointer
+}
+
+h1{
+  margin-left: 3%;
+}
+
 .navbar {
   display: flex;
+  background-color: #0055a2;
   color: white;
-  background-color: #0055A8;
-  font-family: Times;
-  font-size: 25px;
-  height: 100px;
-  padding: 5px;
-  text-align: center;
+  border-bottom: 5px solid;
+  border-color: orange;
 }
 
-.navbarButton{
-  font-family: inherit;
-  background-color: inherit;
-  border: none;
-  color: white;
-  padding: 5px 20px;
-  text-align: right;
-  text-decoration: none;
-  display: inline-block;
+.navbar button {
+  margin: 10px;
   font-size: 20px;
-  margin: 4px 2px;
-  transition-duration: 500ms;
-  margin-left: auto;
-  align-self: flex-end;
-}
-
-.navbarButton1 {
+  border: none;
+  background-color: #0055a2;
   color: white;
 }
 
-.navbarButton1:hover {
-  background-color: #368ECC;
-  color: white; 
+.navbarButtons{
+  margin-left: auto;
+  align-self: center;
+  padding: 10px;
+}
+
+.wrapper {
+  background-color: rgb(220, 220, 220);
+  height:100vh;
+}
+
+.search-bar {
+  margin-top: 20px;
+  margin-left: 3%;
+}
+
+.search-bar input[type=text] {
+  width: 40%;
+  padding: 5px 10px;
+  font-size: 15px;
+}
+
+.search-bar button {
+  font-size: 18px;
+  margin-left: 10px;
+  border-radius: 0;
+}
+
+.item-list {
+  margin-left: 3%;
+  margin-top: 15px;
+}
+
+.item {
+  margin: 15px 0px;
+  font-size: 20px;
+}
+
+
+.main-form {
+  display: flex;
+  justify-content: center;
 }
