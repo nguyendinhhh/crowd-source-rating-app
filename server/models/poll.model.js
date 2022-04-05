@@ -45,6 +45,6 @@ const pollSchema = new mongoose.Schema({
 //this will make this instance expire 180 seconds after creation
 //{createdAt: 1} means we'll begin count from the createdAt time, which is generated automatically when the instance is created
 //after 180 seconds from createdAt, the instance gets deleted
-pollSchema.index({createdAt: 1},{expireAfterSeconds: 180});
+//pollSchema.index({createdAt: 1},{expireAfterSeconds: 180});
 
 module.exports = mongoose.model('Poll', pollSchema);
