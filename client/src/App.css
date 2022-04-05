@@ -1,8 +1,95 @@
+button {
+  border-radius: 15px;
+  font-size: 15px;
+}
+
+button:hover {
+  cursor:pointer
+}
+
+h1{
+  margin-left: 3%;
+}
+
+label {
+  font-size: 18px;
+}
+
+select {
+  font-size: 17px;
+}
+
+input {
+  width: 300px;
+  font-size: 17px;
+}
+
+textarea {
+  font-size: 17px;
+  width: 300px;;
+  height: 100px;
+}
+
 .navbar {
   display: flex;
+  background-color: #0055a2;
+  color: white;
+  border-bottom: 5px solid;
+  border-color: orange;
+}
+
+.navbar button {
+  margin: 10px;
+  font-size: 20px;
+  border: none;
+  background-color: #0055a2;
+  color: white;
 }
 
 .navbarButtons{
   margin-left: auto;
-  align-self: flex-end;
+  align-self: center;
+  padding: 10px;
+}
+
+.wrapper {
+  background-color: rgb(220, 220, 220);
+  height:100vh;
+}
+
+.search-bar {
+  margin-top: 20px;
+  margin-left: 3%;
+}
+
+.search-bar input[type=text] {
+  width: 40%;
+  padding: 5px 10px;
+  font-size: 15px;
+}
+
+.search-bar button {
+  font-size: 18px;
+  margin-left: 10px;
+  border-radius: 0;
+}
+
+.item-list {
+  margin-left: 3%;
+  margin-top: 15px;
+}
+
+.item {
+  margin: 15px 0px;
+  font-size: 20px;
+}
+
+.main-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.type-selector {
+  margin-left: 30%;
 }
