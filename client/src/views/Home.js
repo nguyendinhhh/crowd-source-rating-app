@@ -58,37 +58,41 @@ const Home = (props) => {
     }
 
     return(
-        <div>
+        <div className='wrapper'>
             <Navbar/>
-
-            <form onSubmit={search}>
-            <input 
-                placeholder="Looking for something?"
-                value={keyword} 
-                onChange={(e)=>setKeyword(e.target.value)} 
-                type="text" 
-            />
-            <button>Search</button>
-            </form>
-
-            {
-                pollList.map((poll, index) => (
-                    <div key={index}>
-                        <Link to={`/polldetail/${poll._id}`}>
-                            {poll.pollQuestion}
-                        </Link>   
-                    </div>
-                ))
-            }
-            {
-                ratingList.map((rating, index) => (
-                    <div key={index}>
-                        <Link to={`/ratingdetail/${rating._id}`}>
-                            {rating.ratingQuestion}
-                        </Link>   
-                    </div>
-                ))
-            }
+            <div>
+                <form className='search-bar' onSubmit={search}>
+                    <input 
+                        placeholder="Looking for something?"
+                        value={keyword} 
+                        onChange={(e)=>setKeyword(e.target.value)} 
+                        type="text" 
+                    />
+                    <button>Search</button>
+                </form>
+                <div className='item-list'>
+                    {
+                        pollList.map((poll, index) => (
+                            <div className='item' key={index}>
+                                <Link to={`/polldetail/${poll._id}`}>
+                                    {poll.pollQuestion}
+                                </Link>   
+                            </div>
+                        ))
+                    }
+                    {
+                        ratingList.map((rating, index) => (
+                            <div key={index}>
+                                <Link className='item' to={`/ratingdetail/${rating._id}`}>
+                                    {rating.ratingQuestion}
+                                </Link>   
+                            </div>
+                        ))
+                    }
+                </div>
+                
+            </div>
+            
         </div>
     )
 }

@@ -20,6 +20,23 @@ const UserSchema = new mongoose.Schema({
         minLength: [8, "Passwords must be at least 8 characters"]
     },
 
+    securityQuestion: {
+        type: String,
+        required: [true, "Please select a security question"],
+        enum: [
+            "Which is your favorite class?",
+            "In which city were you born?",
+            "What's the name of your first pet?",
+            "What's your childhood best friend's name?"
+        ]
+    },
+
+    securityAnswer: {
+        type: String,
+        required: [true, "Please enter an answer for the security question"],
+        minLength: [3, "Answer must be longer than 3 characters"]
+    }
+
 }, { timestamps: true })
 
 //before hash, validate confirmPassword matah password

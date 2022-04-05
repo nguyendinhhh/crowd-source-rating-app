@@ -49,7 +49,7 @@ const Navbar = (props) => {
     if(Object.keys(user).length != 0){
         return(
             <div className='navbar'>
-                <h1>Rate My SJSU</h1>
+                <h1>Rate My 123</h1>
                 <div className='navbarButtons'>
                     <button onClick={goHome}>Go Home</button>
                     <button onClick={goCreate}>Create</button>
@@ -61,7 +61,7 @@ const Navbar = (props) => {
     }else{
         return(
             <div className='navbar'>
-                <h1>Rate My SJSU</h1>
+                <h1>Rate My 123</h1>
                 <div className='navbarButtons'>
                     <button onClick={goHome}>Go Home</button>
                     <button onClick={goLogIn}>Login</button>

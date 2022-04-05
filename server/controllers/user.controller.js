@@ -96,6 +96,33 @@ module.exports = {
             .catch(err => res.json(err))
     },
 
+    getOneUser: (req, res) => {
+        User.findOne({sjsuid: req.params.sjsuid})
+            .then((oneUser) => {
+                res.json(oneUser);
+            })
+            .catch((err)=>{
+                console.log(err);
+                res.status(400).json({ message: "Invlaid SJSUID" });
+            })
+    },
+
+    changePassword: (req, res) => {
+        bcrypt.hash(req.body.password, 10)
+        .then((hashedPassword)=>{
+            User.findOneAndUpdate({sjsuid: req.body.sjsuid},{
+                sjsuid: req.body.sjsuid,
+                password: hashedPassword,
+            })
+            .then((newUser) => {
+                res.json(newUser)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        })
+    },
+
     findAllUsers: (req, res) => {
         User.find()
             .then((allUsers) => {
@@ -117,7 +144,5 @@ module.exports = {
             console.log("Delete user failed");
             res.json({message: "Error in deleteUser", error: err});
         })
-    }
-
-
+    },
 }
