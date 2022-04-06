@@ -63,7 +63,7 @@ const Register = (props) => {
         })
         .catch((err)=>{
             console.log(err);
-            setErrors(err.message);
+            setErrors(err.response.data.errors);
             navigate('/register');
         })
     }
