@@ -29,7 +29,7 @@ module.exports = {
             .then((userRecord)=>{
                 //sjsuid not found
                 if(userRecord === null){
-                res.status(400).json({message: "Invlaid SJSUID/Password"})
+                res.status(400).json({message: "Invalid SJSUID/Password"})
                 }
                 //sjsuid is found
                 else{
@@ -63,20 +63,20 @@ module.exports = {
                             }
                             else{
                                 res.status(400).json({
-                                    message: "Invlaid SJSUID/Password"
+                                    message: "Invalid SJSUID/Password"
                                 })
                             }
                             
                         })
                         .catch((err)=>{
                             console.log(err);
-                            res.status(400).json({ message: "Invlaid SJSUID/Password" });
+                            res.status(400).json({ message: "Invalid SJSUID/Password" });
                         })
                 }
             })
             .catch((err)=>{
                 console.log(err);
-                res.status(400).json({ message: "Invlaid SJSUID/Password" });
+                res.status(400).json({ message: "Invalid SJSUID/Password" });
             })
 
     },

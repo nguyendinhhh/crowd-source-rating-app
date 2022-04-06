@@ -20,82 +20,94 @@ const Register = (props) => {
         });
     };
 
-    const register = (event)=>{
+    const register = (event) => {
         event.preventDefault();
 
         axios.post("http://localhost:8000/api/users/register", user)
-        .then((res)=>{
-            console.log(res.data);
-            setUser({
-                sjsuid: "",
-                password: "",
-                confirmPassword: "",
-            });
-            setConfirmReg(
-                "Thank you for Registering, you can now log in!",
-            );
-            setErrors({}); 
-        })
-        .catch((err)=>{
-            console.log(err);
-            setErrors(err.response.data.errors);
-            navigate('/register');
-        })
+            .then((res) => {
+                console.log(res.data);
+                setUser({
+                    sjsuid: "",
+                    password: "",
+                    confirmPassword: "",
+                });
+                setConfirmReg(
+                    "Thank you for Registering, you can now log in!",
+                );
+                setErrors({});
+            })
+            .catch((err) => {
+                console.log(err);
+                setErrors(err.response.data.errors);
+                navigate('/register');
+            })
     }
 
-    return(
-        <div>
+    return (
+        <div className="wrapper">
             <Navbar />
-            {confirmReg ? <h4 style={{ color: "green" }}>{confirmReg}</h4> : null}
-            <h1>Register</h1>
-            <form onSubmit={register}>
-                <div>
-                    <label>SJSU ID</label>
-                    <input
-                        type="text"
-                        name="sjsuid"
-                        value={user.sjsuid}
-                        onChange={handleChange}
-                    />
-                    {errors.sjsuid ? (
-                        <span className="error-text">
-                            {errors.sjsuid.message}
-                        </span>
-                    ) : null}
-                </div>
-                <div>
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        name="password"
-                        value={user.password}
-                        onChange={handleChange}
-                    />
-                    {errors.password ? (
-                        <span>
-                            {errors.password.message}
-                        </span>
-                    ) : null}
-                </div>
-                <div>
-                    <label>Confirm Password</label>
-                    <input
-                        type="password"
-                        name="confirmPassword"
-                        value={user.confirmPassword}
-                        onChange={handleChange}
-                    />
-                    {errors.confirmPassword ? (
-                        <span>
-                            {errors.confirmPassword.message}
-                        </span>
-                    ) : null}
-                </div>
-                <div>
-                    <button>Register</button>
-                </div>
-            </form>
+            <div className="section-shift">
+                {confirmReg ? <h4 style={{ color: "green" }}>{confirmReg}</h4> : null}
+                <h2>Register</h2>
+                <form onSubmit={register}>
+                    <div>
+                        <table>
+                            <tr>
+                                <td><label>SJSU ID</label></td>
+                                <td>
+                                    <input
+                                        type="text"
+                                        name="sjsuid"
+                                        value={user.sjsuid}
+                                        onChange={handleChange}
+                                    />
+                                    {errors.sjsuid ? (
+                                        <span className="error-text">
+                                            {errors.sjsuid.message}
+                                        </span>
+                                    ) : null}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label>Password</label></td>
+                                <td>
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        value={user.password}
+                                        onChange={handleChange}
+                                    />
+                                    {errors.password ? (
+                                        <span>
+                                            {errors.password.message}
+                                        </span>
+                                    ) : null}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label>Confirm Password</label></td>
+                                <td>
+                                    <input
+                                        type="password"
+                                        name="confirmPassword"
+                                        value={user.confirmPassword}
+                                        onChange={handleChange}
+                                    />
+                                    {errors.confirmPassword ? (
+                                        <span>
+                                            {errors.confirmPassword.message}
+                                        </span>
+                                    ) : null}
 
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <button>Register</button>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }
