@@ -17,10 +17,6 @@ app.use(cors({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname,'build')))
 
-// app.get('/', function (req, res) {
-//     res.sendFile(path.join(__dirname,'build','index.html'))
-// })
-
 require("./config/mongoose.config");
 require("./routes/user.routes")(app);
 require("./routes/poll.routes")(app);
