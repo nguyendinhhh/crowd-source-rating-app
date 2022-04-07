@@ -33,33 +33,45 @@ const Login = (props) => {
             });
     }
 
-    return(
-        <div>
+    return (
+        <div className="wrapper">
             <Navbar />
-            <Link to={"/register"}>No account? Register now!</Link>
-            <h2>Login</h2>
-            <p>{errors ? errors : ""}</p>
-            <form onSubmit={login}>
-                <div>
-                    <label>SJSU ID</label>
-                    <input
-                        type="text"
-                        name="sjsuid"
-                        value={sjsuid}
-                        onChange={(e) => setSjsuid(e.target.value)}
-                    />
-                </div>
-                <div>
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        name="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
-                <button>Sign In</button>
-            </form>
+            <div className="section-shift">
+                <h2>Login</h2>
+                <p>{errors ? errors : ""}</p>
+                <form onSubmit={login}>
+                    <div>
+                        <table>
+                            <tr>
+                                <td><label>SJSU ID</label></td>
+                                <td>
+                                    <input
+                                        type="text"
+                                        name="sjsuid"
+                                        value={sjsuid}
+                                        onChange={(e) => setSjsuid(e.target.value)}
+                                    />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label>Password</label></td>
+                                <td>
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                    />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <button>Sign In</button>
+                </form>
+                <br />
+                <Link to={"/register"}>No account? Register now!</Link>
+            </div>
         </div>
     )
 }

@@ -20,12 +20,12 @@ const Manage = (props) => {
             .catch((err) => {
                 console.log(err);
             })
-    },[])
-    
+    }, [])
+
     useEffect(() => {
         axios.get(`http://localhost:8000/api/polls/allpollsbycreator/${user.sjsuid}`,
-            {withCredentials: true}
-            )
+            { withCredentials: true }
+        )
             .then((res) => {
                 console.log(res.data)
                 setPollList(res.data)
@@ -34,8 +34,8 @@ const Manage = (props) => {
                 console.log(err);
             })
         axios.get(`http://localhost:8000/api/ratings/allratingsbycreator/${user.sjsuid}`,
-            {withCredentials: true}
-            )
+            { withCredentials: true }
+        )
             .then((res) => {
                 console.log(res.data)
                 setRatingList(res.data)
@@ -45,8 +45,8 @@ const Manage = (props) => {
             })
     }, [user])
 
-    const deletePoll = (pollid) =>{
-        axios.delete(`http://localhost:8000/api/polls/${pollid}`, {withCredentials: true})
+    const deletePoll = (pollid) => {
+        axios.delete(`http://localhost:8000/api/polls/${pollid}`, { withCredentials: true })
             .then((res) => {
                 console.log(res);
                 console.log(res.data);
@@ -55,8 +55,8 @@ const Manage = (props) => {
             .catch((err) => console.log(err))
     }
 
-    const deleteRating = (ratingid) =>{
-        axios.delete(`http://localhost:8000/api/ratings/${ratingid}`, {withCredentials: true})
+    const deleteRating = (ratingid) => {
+        axios.delete(`http://localhost:8000/api/ratings/${ratingid}`, { withCredentials: true })
             .then((res) => {
                 console.log(res);
                 console.log(res.data);
@@ -65,35 +65,40 @@ const Manage = (props) => {
             .catch((err) => console.log(err))
     }
 
-    return(
-        <div>
+    return (
+        <div className='wrapper'>
             <Navbar />
-            <p>Welcome, Spartan</p>
-            <p>Here are the threads initiated by you:</p>
-            {
-                pollList.map((poll, index) =>(
-                    <div key={index}>
-                        <Link to={`/polldetail/${poll._id}`}>
-                            {poll.pollQuestion}
-                        </Link>  
-                        <button onClick={() => deletePoll(poll._id)}>
-                            Delete
+            <div className="section-shift">
+                <h2>Welcome, Spartan</h2>
+                <p>Here are the threads initiated by you:</p>
+            </div>
+            <div className='item-list'>
+                {
+                    pollList.map((poll, index) => (
+                        <div class='item' key={index}>
+                            <Link to={`/polldetail/${poll._id}`}>
+                                {poll.pollQuestion}
+                            </Link>
+                            <button class="small-indent" onClick={() => deletePoll(poll._id)}>
+                                Delete
                         </button>
-                    </div>
-                ))
-            }
-            {
-                ratingList.map((rating, index) =>(
-                    <div key={index}>
-                        <Link to={`/ratingdetail/${rating._id}`}>
-                            {rating.ratingQuestion}
-                        </Link>  
-                        <button onClick={() => deleteRating(rating._id)}>
-                            Delete
+                        </div>
+                    ))
+                }
+                {
+                    ratingList.map((rating, index) => (
+                        <div classname='item' key={index}>
+                            <Link to={`/ratingdetail/${rating._id}`}>
+                                {rating.ratingQuestion}
+                            </Link>
+                            <button class="small-indent" onClick={() => deleteRating(rating._id)}>
+                                Delete
                         </button>
-                    </div>
-                ))
-            }
+                        </div>
+                    ))
+                }
+            </div>
+
         </div>
     )
 }

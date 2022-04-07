@@ -43,7 +43,7 @@ const Register = (props) => {
         });
     };
 
-    const register = (event)=>{
+    const register = (event) => {
         event.preventDefault();
 
         axios.post("http://localhost:8000/api/users/register", user)

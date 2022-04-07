@@ -118,6 +118,14 @@ textarea {
   margin-left: 30%;
 }
 
+.section-shift {
+  margin-left: 3%
+}
+
+.small-indent{
+  margin-left: 10px;
+}
+
 .userInput {
   display: flex;
   margin-left: 3%;
