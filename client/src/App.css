@@ -1,13 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 500px){
+  h1 {
+    font-size: 1.5rem;
+  }
+  .sec-wrapper {
+    padding: 5px;
+  }
+  .menu {
+    min-width: 80%;
+  }
+}
+
 button {
-  border-radius: 15px;
+  /* border-radius: 15px; */
   font-size: 15px;
+  padding: 8px;
+  margin-left: 3%;
+  margin-top: 1%;
 }
 
 button:hover {
+  background-color: darkgrey;
+  color: white;
   cursor:pointer
 }
 
 h1{
+  align-self: center;
   margin-left: 3%;
 }
 
@@ -100,4 +124,19 @@ textarea {
 
 .small-indent{
   margin-left: 10px;
+}
+
+.userInput {
+  display: flex;
+  margin-left: 3%;
+  margin-top: 1%;
+  flex-direction: column;
+}
+
+.sec-wrapper {
+  margin-top: 2%;
+}
+
+.menu {
+  max-width: 25%;
 }
