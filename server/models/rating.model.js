@@ -13,7 +13,7 @@ const scoreSchema = new mongoose.Schema({
     votes: {
       type: Number,
       default: 0,
-    }
+    },
   
   });
 
@@ -28,9 +28,22 @@ const ratingSchema = new mongoose.Schema({
 
     scores: [scoreSchema],
 
+    likes: {
+      type: Number,
+      default:0
+    },
+
+    lifespan: {
+      type: Number,
+      default: 0,
+      required: [true, "Please select the life span of your post"],
+    },
+
     //who have voted on this rating question
     //for prevent duplicted voting
     voted: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+
+    liked: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
 
     //who created this rating
     createdBy: {
