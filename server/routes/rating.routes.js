@@ -10,4 +10,5 @@ module.exports = (app) => {
     app.get("/api/ratings/allratingsbykeyword/:keyword", RatingController.findAllRatingsByKeyword);
     app.delete("/api/ratings/:ratingid", authenticate, RatingController.deleteRating);
     app.post("/api/ratings/vote/:ratingid", authenticate, RatingController.voteRating)
+    app.post("/api/ratings/like/:ratingid", authenticate, RatingController.likeRating)
 };

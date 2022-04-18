@@ -146,6 +146,22 @@ module.exports = {
             message: err.message,
           });
         }
+    },
+
+    likeRating: async(req, res) => {
+        const ratingid  = req.params.ratingid;
+        const userid = req.jwtpayload.userid;
+        const rating = await Rating.findById(ratingid);
+
+        // check whether this user already liked
+        if (rating.liked.filter(user => user.toString() === userid).length <= 0) {
+            rating.likes = rating.likes + 1
+            rating.liked.push(userid);
+            await rating.save();
+          return res.status(202).json(rating);
+        } else {
+          res.json({message:"This user already liked"})
+        }
     }
 
 
