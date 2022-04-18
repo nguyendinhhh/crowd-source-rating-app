@@ -69,7 +69,9 @@ const Login = (props) => {
 
                     <button>Sign In</button>
                 </form>
-                <br />
+                <br/>
+                <Link to={"/security"}>Forget Password</Link>
+                <br/>
                 <Link to={"/register"}>No account? Register now!</Link>
             </div>
         </div>

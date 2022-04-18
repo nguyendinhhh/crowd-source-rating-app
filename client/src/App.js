@@ -7,6 +7,7 @@ import PollDetail from './views/PollDetail';
 import RatingDetail from './views/RatingDetail';
 import Manage from './views/Manage';
 import Create from './views/Create';
+import Security from './views/Security';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <RatingDetail path ='/ratingdetail/:ratingid'/>
         <Manage path ='/manage'/>
         <Create path ='/create'/>
+        <Security path ='/security'/>
       </Router>
     </div>
   );

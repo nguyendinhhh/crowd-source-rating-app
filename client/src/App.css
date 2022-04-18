@@ -20,8 +20,7 @@ button {
   /* border-radius: 15px; */
   font-size: 15px;
   padding: 8px;
-  margin-left: 3%;
-  margin-top: 1%;
+  margin-top: 10px;
 }
 
 button:hover {
@@ -103,10 +102,12 @@ textarea {
   margin-top: 15px;
 }
 
+/*
 .item {
   margin: 15px 0px;
   font-size: 20px;
 }
+*/
 
 .main-form {
   display: flex;
@@ -139,4 +140,12 @@ textarea {
 
 .menu {
   max-width: 25%;
+}
+
+datalist{
+  display: inline;
+}
+
+.alert-message{
+  color: red
 }
