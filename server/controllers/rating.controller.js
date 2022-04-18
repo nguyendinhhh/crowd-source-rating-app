@@ -135,7 +135,7 @@ module.exports = {
       
               return res.status(202).json(rating);
             } else {
-              res.json({message:"This user already voted"})
+                res.status(400).json({ message: "You already voted" });
             }
           } else {
             res.json({message:"Did not submit an answer"})

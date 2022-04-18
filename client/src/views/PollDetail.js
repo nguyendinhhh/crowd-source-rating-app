@@ -45,27 +45,28 @@ const PollDetail = (props) => {
     }
 
     return(
-        <div>
+        <div className='wrapper'>
             <Navbar />
-            <form onSubmit={submitHandler}>
-                <p>{error ? error : ""}</p>
-                <p>{poll.pollQuestion}</p>
-                {
-                    options.map((option, index) => (
-                        <div key={index}>
-                            <input 
-                                type = "radio" 
-                                value={option.option}
-                                name = "option"
-                                onChange = {(e)=>setVotedOption(e.target.value)}
-                            />
-                            {option.option} (current vote: {option.votes})
-                        </div>
-                    ))
-                }
-                <button>Submit</button>
-            </form>
-            
+            <div className='main-form'>
+                <form onSubmit={submitHandler}>
+                    <b style={{color:'red'}}>{error ? error : ""}</b>
+                    <p>{poll.pollQuestion}</p>
+                    {
+                        options.map((option, index) => (
+                            <div key={index}>
+                                <input style={{width: 20, marginTop: 10}}
+                                    type = "radio" 
+                                    value={option.option}
+                                    name = "option"
+                                    onChange = {(e)=>setVotedOption(e.target.value)}
+                                />
+                                {option.option} (current vote: {option.votes})
+                            </div>
+                        ))
+                    }
+                    <button>Submit</button>
+                </form>
+            </div>
         </div>
     )
 
