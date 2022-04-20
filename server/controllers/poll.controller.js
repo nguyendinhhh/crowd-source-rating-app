@@ -134,7 +134,7 @@ module.exports = {
               res.status(400).json({ message: "You already voted" });
             }
           } else {
-            res.json({message:"Did not submit an answer"})
+            res.status(400).json({ message: "Please select an option" });
           }
         } catch (err) {
           return next({

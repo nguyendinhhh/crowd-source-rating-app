@@ -75,11 +75,11 @@ const Manage = (props) => {
             <div className='item-list'>
                 {
                     pollList.map((poll, index) => (
-                        <div class='item' key={index}>
+                        <div className='item' key={index}>
                             <Link to={`/polldetail/${poll._id}`}>
                                 {poll.pollQuestion}
                             </Link>
-                            <button class="small-indent" onClick={() => deletePoll(poll._id)}>
+                            <button className="small-indent" onClick={() => deletePoll(poll._id)}>
                                 Delete
                         </button>
                         </div>
@@ -87,11 +87,11 @@ const Manage = (props) => {
                 }
                 {
                     ratingList.map((rating, index) => (
-                        <div classname='item' key={index}>
+                        <div className='item' key={index}>
                             <Link to={`/ratingdetail/${rating._id}`}>
                                 {rating.ratingQuestion}
                             </Link>
-                            <button class="small-indent" onClick={() => deleteRating(rating._id)}>
+                            <button className="small-indent" onClick={() => deleteRating(rating._id)}>
                                 Delete
                         </button>
                         </div>
