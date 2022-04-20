@@ -110,7 +110,7 @@ module.exports = {
         //find the rating question
         try {
             console.log(`backend received voted score:${votedScore}`)
-          if (votedScore) {
+          if (votedScore != "") {
             const rating = await Rating.findById(ratingid);
             if (!rating) throw new Error('No rating found');
 
@@ -138,7 +138,7 @@ module.exports = {
                 res.status(400).json({ message: "You already voted" });
             }
           } else {
-            res.json({message:"Did not submit an answer"})
+            res.status(400).json({ message: "Please select a score" });
           }
         } catch (err) {
           return next({
@@ -160,7 +160,7 @@ module.exports = {
             await rating.save();
           return res.status(202).json(rating);
         } else {
-          res.json({message:"This user already liked"})
+          res.json({message:"You already liked"})
         }
     }
 

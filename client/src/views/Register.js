@@ -89,6 +89,7 @@ const Register = (props) => {
                         </span>
                     ) : null}
                 </div>
+                <label>The security question will be used for password recovery</label>
                 <div className='userInput'>
                     <label>Security Question</label>
                         <Dropdown
