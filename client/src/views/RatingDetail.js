@@ -94,6 +94,7 @@ const RatingDetail = (props) => {
     if(!flag){
         return(
             <div className='wrapper'> 
+            <div className='bg'></div>
                 <Navbar />
                 <div className='main-form'>
                     <form onSubmit={submitHandler}>
@@ -120,6 +121,7 @@ const RatingDetail = (props) => {
     else{
         return(
             <div className='wrapper'> 
+            <div className='bg'></div>
                 <Navbar />
                 <div className='main-form'>
                     <form onSubmit={submitHandler}>

@@ -34,8 +34,22 @@ h1{
   margin-left: 3%;
 }
 
+p{
+  font-weight: bold;
+}
+
+a{
+  font-weight: bold;
+  color:black;
+}
+
+b{
+  font-size: large;
+}
+
 label {
   font-size: 18px;
+  font-weight: bold;
 }
 
 select {
@@ -78,6 +92,23 @@ textarea {
 .wrapper {
   background-color: rgb(220, 220, 220);
   height:100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.bg {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url("/public/main_bg.jpg") center center;
+  opacity: .3;
+  width: 100%;
+  height: 100%;
+  background-size: 120%;
+  background-repeat: no-repeat;
 }
 
 .search-bar {
@@ -102,12 +133,12 @@ textarea {
   margin-top: 15px;
 }
 
-/*
+
 .item {
   margin: 15px 0px;
   font-size: 20px;
 }
-*/
+
 
 .main-form {
   display: flex;
@@ -121,6 +152,7 @@ textarea {
 }
 
 .section-shift {
+  margin-top: 1%;
   margin-left: 3%
 }
 

@@ -35,10 +35,11 @@ const Login = (props) => {
 
     return (
         <div className="wrapper">
+            <div className='bg'></div>
             <Navbar />
             <div className="section-shift">
                 <h2>Login</h2>
-                <p>{errors ? errors : ""}</p>
+                <b style={{color:"red"}}>{errors ? errors : ""}</b>
                 <form onSubmit={login}>
                     <div>
                         <table>

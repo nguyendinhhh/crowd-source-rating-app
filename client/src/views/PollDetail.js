@@ -73,6 +73,7 @@ const PollDetail = (props) => {
     if(!flag){
         return(
             <div className='wrapper'>
+                <div className='bg'></div>
                 <Navbar />
                 <div className='main-form'>
                     <div>
@@ -90,7 +91,7 @@ const PollDetail = (props) => {
                                                 name = "option"
                                                 onChange = {(e)=>setVotedOption(e.target.value)}
                                             />
-                                            {option.option} (current vote: {option.votes})
+                                            {option.option}
                                         </div>
                                     ))
                                 }
@@ -105,6 +106,7 @@ const PollDetail = (props) => {
     else if(flag){
         return(
             <div className='wrapper'>
+                <div className='bg'></div>
                 <Navbar />
                 <div className='main-form'>
                     <div>
@@ -122,7 +124,7 @@ const PollDetail = (props) => {
                                                 name = "option"
                                                 onChange = {(e)=>setVotedOption(e.target.value)}
                                             />
-                                            {option.option} (current vote: {option.votes})
+                                            {option.option}
                                         </div>
                                     ))
                                 }

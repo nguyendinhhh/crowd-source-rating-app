@@ -67,10 +67,11 @@ const Manage = (props) => {
 
     return (
         <div className='wrapper'>
+            <div className='bg'></div>
             <Navbar />
             <div className="section-shift">
                 <h2>Welcome, Spartan</h2>
-                <p>Here are the threads initiated by you:</p>
+                <label>Here are the threads initiated by you:</label>
             </div>
             <div className='item-list'>
                 {

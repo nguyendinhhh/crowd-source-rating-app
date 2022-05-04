@@ -2,6 +2,9 @@ import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from '@reach/router';
 import Navbar from '../components/Navbar';
+import Moment from 'react-moment';
+import moment from 'moment';
+moment().format();
 
 const Home = (props) => {
 
@@ -20,6 +23,8 @@ const Home = (props) => {
             })
     }, [])
 
+    
+    
     useEffect(() => {
         axios.get("http://localhost:8000/api/allRatings")
             .then((res) => {
@@ -57,8 +62,15 @@ const Home = (props) => {
         }
     }
 
+
+    //var current = moment(new Date());
+    //var created = moment(ratingList[0].createdAt);
+
+    //current.diff(created, 'days')
+
     return(
         <div className='wrapper'>
+            <div className='bg'></div>
             <Navbar/>
             <div>
                 <form className='search-bar' onSubmit={search}>
@@ -82,10 +94,12 @@ const Home = (props) => {
                     }
                     {
                         ratingList.map((rating, index) => (
-                            <div key={index}>
-                                <Link className='item' to={`/ratingdetail/${rating._id}`}>
+                            <div key={index} className='item'>
+                                {((moment(new Date()).diff(moment(rating.createdAt),'days') <= rating.lifespan) || rating.likes >= 50) &&
+                                    <Link to={`/ratingdetail/${rating._id}`}>
                                     {rating.ratingQuestion}
-                                </Link>   
+                                    </Link>   
+                                } 
                             </div>
                         ))
                     }

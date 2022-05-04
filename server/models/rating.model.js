@@ -39,6 +39,11 @@ const ratingSchema = new mongoose.Schema({
       required: [true, "Please select the life span of your post"],
     },
 
+    permanent: {
+      type: Number,
+      default: 0,
+    },
+
     //who have voted on this rating question
     //for prevent duplicted voting
     voted: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
