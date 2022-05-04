@@ -9,14 +9,19 @@ const Create = (props) => {
     const [options, setOptions] = useState([{option: ""}]);
     const [pollQuestion, setPollQuestion] = useState("");
     const [ratingQuestion, setRatingQuestion] = useState("");
+    const [lifespan, setLifespan] = useState("");
     const [error, setError] = useState({})
 
-    const pollQuestionHander = (e) => {
+    const pollQuestionHandler = (e) => {
         setPollQuestion(e.target.value);
     }
 
-    const ratingQuestionHander = (e) => {
+    const ratingQuestionHandler = (e) => {
         setRatingQuestion(e.target.value);
+    }
+
+    const lifespanHandler = (e) => {
+        setLifespan(e.target.value);
     }
 
     const optionHandler = (e, index) => {
@@ -57,7 +62,7 @@ const Create = (props) => {
 
     const ratingSubmitHandler = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:8000/api/ratings/create", {ratingQuestion}, {withCredentials: true})
+        axios.post("http://localhost:8000/api/ratings/create", {ratingQuestion, lifespan}, {withCredentials: true})
             .then((res) => {
                 console.log(res);
                 console.log(res.data);
@@ -72,6 +77,7 @@ const Create = (props) => {
     if(type == "poll"){
         return(
             <div className='wrapper'>
+                <div className='bg'></div>
                 <Navbar />
                 <div className='type-selector'>
                     <label>Select type</label>
@@ -83,6 +89,11 @@ const Create = (props) => {
                 
                 <div className='main-form'>
                     <form onSubmit={pollSubmitHandler}>
+                    {error.pollQuestion ? (
+                        <b style={{color:'red'}} className="error-text">
+                            {error.pollQuestion.message}
+                        </b>
+                    ) : null}
                     <div>
                         <label>Enter a topic for your poll:</label>
                     </div>
@@ -90,7 +101,7 @@ const Create = (props) => {
                         placeholder='Which is the best cafe on campus?'
                         name = "pollQuestion"
                         value = {pollQuestion}
-                        onChange = {(e) => pollQuestionHander(e)}
+                        onChange = {(e) => pollQuestionHandler(e)}
                     />
                     {options.map((option, i) => {
                         return (
@@ -122,6 +133,7 @@ const Create = (props) => {
     else{
         return(
             <div className='wrapper'>
+                <div className='bg'></div>
                 <Navbar />
                 <div className='type-selector'>
                     <label>Select type</label>
@@ -132,6 +144,11 @@ const Create = (props) => {
                 </div>
                 <div className='main-form'>
                     <form onSubmit={ratingSubmitHandler}>
+                        {error.ratingQuestion ? (
+                            <b style={{color:'red'}} className="error-text">
+                                {error.ratingQuestion.message}
+                            </b>
+                        ) : null}
                         <div>
                             <label>Enter a topic for your rating:</label>
                         </div>
@@ -139,10 +156,28 @@ const Create = (props) => {
                             placeholder='How would rate the new building?'
                             name = "ratingQuestion"
                             value = {ratingQuestion}
-                            onChange = {(e) => ratingQuestionHander(e)}
+                            onChange = {(e) => ratingQuestionHandler(e)}
                         />
                         <div>
                             <label>Your subject will be rated on a scale of 1-5</label>
+                        </div>
+                        <div>
+                        {error.lifespan ? (
+                            <b style={{color:'red'}} className="error-text">
+                                {error.lifespan.message}
+                            </b>
+                        ) : null}
+                        <div>
+                            <label>Select a life span for your question</label>
+                            <select onChange={(e) => lifespanHandler(e)}>
+                                <option value= "">--select--</option>
+                                <option value= {7} >7 days</option>
+                                <option value= {15}>15 days</option>
+                                <option value= {30}>30 days</option>
+                                <option value= {90}>90 days</option>
+                                <option value= {365}>365 days</option>
+                            </select>
+                        </div>
                         </div>
                         <div>
                             <button style={{marginTop: 10}}>Submit</button>

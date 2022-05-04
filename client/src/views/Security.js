@@ -64,59 +64,70 @@ const Forget = (props) => {
     if(!correctAnswerFlag && !foundUserFlag){
         return(
             <div className='wrapper'>
+                <div className='bg'></div>
                 <Navbar/>
-                <form onSubmit={searchID}>
-                    <div className='alert-message'>
-                        <b>{errors ? errors : ""}</b>
-                    </div>
-                    <label>Enter your SJSU ID:</label>
-                    <input type="text"
-                        name="sjsuid"
-                        value={sjsuid}
-                        onChange={(e) => setSjsuid(e.target.value)}>
-                    </input>
-                    <button>Submit</button>
-                </form>
+                <div className='section-shift'>
+                    <form onSubmit={searchID}>
+                        <div className='alert-message'>
+                            <b>{errors ? errors : ""}</b>
+                        </div>
+                        <label>Enter your SJSU ID:</label>
+                        <input type="text"
+                            name="sjsuid"
+                            value={sjsuid}
+                            onChange={(e) => setSjsuid(e.target.value)}>
+                        </input>
+                        <button>Submit</button>
+                    </form>
+                </div>
+                
             </div>
         )
     }else if(!correctAnswerFlag && foundUserFlag){
         return(
             <div className='wrapper'>
+                <div className='bg'></div>
                 <Navbar/>
-                <form onSubmit={checkAnswer}>
-                    <div className='alert-message'>
-                        <b>{errors ? errors : ""}</b>
-                    </div>
-                    <p>SJSU ID: {user.sjsuid}</p>
-                    <label>Please answer your security question:</label>
-                    <p>{user.securityQuestion}</p>
-                    <input type="text" 
-                        name="securityAnswer"
-                        value={securityAnswer}
-                        onChange={(e) => setSecurityAnswer(e.target.value)}>
-                    </input>
-                    <button>Submit</button>
-                </form>
+                <div className='section-shift'>
+                    <form onSubmit={checkAnswer}>
+                        <div className='alert-message'>
+                            <b>{errors ? errors : ""}</b>
+                        </div>
+                        <p>SJSU ID: {user.sjsuid}</p>
+                        <label>Please answer your security question:</label>
+                        <p>{user.securityQuestion}</p>
+                        <input type="text" 
+                            name="securityAnswer"
+                            value={securityAnswer}
+                            onChange={(e) => setSecurityAnswer(e.target.value)}>
+                        </input>
+                        <button>Submit</button>
+                    </form>
+                </div>
+               
             </div>
         )
     }else if(correctAnswerFlag && foundUserFlag){
         return(
             <div className='wrapper'>
+                <div className='bg'></div>
                 <Navbar/>
-                <form onSubmit={changePassword}>
-                    <div className='alert-message'>
-                        <b>{errors ? errors : ""}</b>
-                        <b style={{color:'green'}}>{confirmation ? confirmation : ""}</b>
-                    </div>
-                    <p>SJSU ID: {user.sjsuid}</p>
-                    <label>Please enter a new password:</label>
-                    <input type="text" 
-                        name="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}>
-                    </input>
-                    <button>Submit</button>
-                </form>
+                <div className='section-shift'>
+                    <form onSubmit={changePassword}>
+                        <div className='alert-message'>
+                            <b>{errors ? errors : ""}</b>
+                            <b style={{color:'green'}}>{confirmation ? confirmation : ""}</b>
+                        </div>
+                        <p>SJSU ID: {user.sjsuid}</p>
+                        <label>Please enter a new password:</label>
+                        <input type="text" 
+                            name="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}>
+                        </input>
+                        <button>Submit</button>
+                    </form>
+                </div>
             </div>
         )
     }
