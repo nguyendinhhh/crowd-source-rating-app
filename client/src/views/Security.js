@@ -1,6 +1,5 @@
-import { React, useEffect, useState } from 'react';
+import { React, useState } from 'react';
 import axios from 'axios';
-import { Link, navigate } from '@reach/router';
 import Navbar from '../components/Navbar';
 
 const Forget = (props) => {
@@ -21,7 +20,6 @@ const Forget = (props) => {
             .get(`http://localhost:8000/api/users/${sjsuid}`)
             .then((res) => {
                 if(res.data){
-                    console.log(res)
                     setUser(res.data)
                     setFoundUserFlag(true)
                 }
@@ -30,7 +28,6 @@ const Forget = (props) => {
                 }
             })
             .catch((err) => {
-                console.log(err.response.data);
                 setErrors(err.response.data.message);
             });
     }
@@ -38,7 +35,7 @@ const Forget = (props) => {
     const checkAnswer = (event)=>{
         event.preventDefault();
         setErrors("")
-        if(securityAnswer == user.securityAnswer){
+        if(securityAnswer === user.securityAnswer){
             setCorrectAnswerFlag(true)
         }
         else{
@@ -55,7 +52,6 @@ const Forget = (props) => {
                 password
             })
             .then(res =>{
-                console.log(res.data)
                 setConfirmation("Your password has been reset. You can now go back and login")
             })
             

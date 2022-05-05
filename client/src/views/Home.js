@@ -2,7 +2,6 @@ import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from '@reach/router';
 import Navbar from '../components/Navbar';
-import Moment from 'react-moment';
 import moment from 'moment';
 moment().format();
 
@@ -15,24 +14,21 @@ const Home = (props) => {
     useEffect(() => {
         axios.get("http://localhost:8000/api/allPolls")
             .then((res) => {
-                console.log(res.data)
                 setPollList(res.data)
             })
             .catch((err) => {
-                console.log(err);
+                console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach
             })
     }, [])
 
     
-    
     useEffect(() => {
         axios.get("http://localhost:8000/api/allRatings")
             .then((res) => {
-                console.log(res.data)
                 setRatingList(res.data)
             })
             .catch((err) => {
-                console.log(err);
+                console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach
             })
     }, [])
 
@@ -42,22 +38,18 @@ const Home = (props) => {
             axios.get(`http://localhost:8000/api/polls/allpollsbykeyword/${keyword}`)
                 .then((res)=>{
                     setPollList(res.data);
-                    console.log(res);
-                    console.log(res.data);
                     setKeyword("");
                 })
                 .catch((err)=>{
-                    console.log(err);
+                    console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach
                 });
             axios.get(`http://localhost:8000/api/ratings/allratingsbykeyword/${keyword}`)
             .then((res)=>{
                 setRatingList(res.data);
-                console.log(res);
-                console.log(res.data);
                 setKeyword("");
             })
             .catch((err)=>{
-                console.log(err);
+                console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach
             });
         }
     }

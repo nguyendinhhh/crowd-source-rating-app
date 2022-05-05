@@ -1,7 +1,27 @@
-import { React, useEffect, useState } from 'react';
+import { React, useState } from 'react';
 import axios from 'axios';
-import { Link, navigate } from '@reach/router';
+import { navigate } from '@reach/router';
 import Navbar from '../components/Navbar';
+
+const questions = [
+    { label: "Which is your favorite class?", value: "Which is your favorite class?" },
+    { label: "In which city were you born?", value: "In which city were you born?" },
+    { label: "What's the name of your first pet?", value: "What's the name of your first pet?" },
+    { label: "What's your childhood best friend's name?", value: "What's your childhood best friend's name?"},
+];
+
+// dropdown component, this can probably be useable 
+const Dropdown = ({ name, value, options, onChange }) => {
+    return (
+        <div className="menu">
+            <select name={name} value={value} onChange={onChange}>
+            {options.map((option) => (
+                <option key={option.value} value={option.value}>{option.label}</option>
+            ))}
+            </select>
+        </div>
+    );
+};
 
 const Register = (props) => {
 
@@ -14,27 +34,6 @@ const Register = (props) => {
         password: "",
         confirmPassword: "",
     });
-
-    const questions = [
-        { label: "Which is your favorite class?", value: "Which is your favorite class?" },
-        { label: "In which city were you born?", value: "In which city were you born?" },
-        { label: "What's the name of your first pet?", value: "What's the name of your first pet?" },
-        { label: "What's your childhood best friend's name?", value: "What's your childhood best friend's name?"},
-    ];
-
-    // dropdown component, this can probably be useable 
-    const Dropdown = ({ name, value, options, onChange }) => {
-        return (
-            <div className="menu">
-                <select name={name} value={value} onChange={onChange}>
-                {options.map((option) => (
-                    <option value={option.value}>{option.label}</option>
-                ))}
-                </select>
-            </div>
-        );
-    };
-
     
     const handleChange = (event) => {
         setUser({
@@ -57,13 +56,13 @@ const Register = (props) => {
                 confirmPassword: "",
             });
             setConfirmReg(
-                "Thank you for Registering, you can now log in!",
+                "Thank you for registering, you can now log in!",
             );
             setErrors({}); 
         })
         .catch((err)=>{
-            console.log(err);
-            setErrors(err.response.data.errors);
+            console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach
+            // setErrors(err.response.data.errors);
             navigate('/register');
         })
     }
@@ -72,7 +71,6 @@ const Register = (props) => {
         <div className='wrapper'>
             <div className='bg'></div>
             <Navbar />
-            {confirmReg && <h4 style={{ color: "green", marginLeft:"3%" }}>{confirmReg}</h4>}
             <div className="sec-wrapper">
                 <h1>Account Registration</h1>
                 <form onSubmit={register}>
@@ -153,6 +151,7 @@ const Register = (props) => {
                     
                 </form>
             </div>
+            {confirmReg && <h3 style={{ color: "darkgreen", marginLeft:"3%", marginTop:"10px" }}>{confirmReg}</h3>}
         </div>    
     )
 }

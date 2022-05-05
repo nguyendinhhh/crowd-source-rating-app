@@ -1,11 +1,9 @@
 import { React, useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link, navigate } from '@reach/router';
 import Navbar from '../components/Navbar';
-import StepRangeSlider from 'react-step-range-slider'
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS } from 'chart.js/auto'
-import { Chart }            from 'react-chartjs-2'
+import { Chart } from 'react-chartjs-2'
 
 const RatingDetail = (props) => {
     const {ratingid} = props;
@@ -24,7 +22,6 @@ const RatingDetail = (props) => {
     useEffect(() => {
         axios.get(`http://localhost:8000/api/ratings/${ratingid}`)
             .then((res) => {
-                console.log(res.data);
                 setRating(res.data);
                 setScores(res.data.scores);
                 res.data.scores.forEach((score)=>{
@@ -35,7 +32,7 @@ const RatingDetail = (props) => {
                 setVotesList(newVotesList)
             })
             .catch((err) => {
-                console.log(err)
+                console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach
             })
     }, [flag, likedFlag])
 
@@ -57,15 +54,12 @@ const RatingDetail = (props) => {
             { withCredentials: true }
         )
         .then((res)=>{
-            console.log(res);
-            console.log(res.data);
             setFlag(1);
         })
         .catch((err)=>{
-            console.log(err);
-            console.log("err.response:", err.response.data);
+            console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach;
             setError(err.response.data.message);
-            if(err.response.data.message != "You must be logged in to perform this operation"){
+            if(err.response.data.message !== "You must be logged in to perform this operation"){
                 setFlag(1)   
             }
         })
@@ -79,14 +73,11 @@ const RatingDetail = (props) => {
             {withCredentials: true}
         )
         .then((res)=>{
-            console.log(res);
-            console.log(res.data);
             setError(res.data.message)
             setLikedFlag(1);
         })
-        .catch((err)=>{
-            console.log(err);
-            console.log("err.response:", err.response.data);
+            .catch((err) => {
+            console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach;
             setError(err.response.data.message);
         })
     }
@@ -105,7 +96,7 @@ const RatingDetail = (props) => {
                         <div style={{marginTop:30}}>
                             <input type="range" name="slider" min="0" max="5" step="1" defaultValue={3}
                             onChange = {(e)=>setVotedScore(e.target.value)}/>
-                            <label for="slider">{votedScore}</label>
+                            <label htmlFor="slider">{votedScore}</label>
                         </div>
                         <div style={{marginTop:30}}>
                             <button>Submit</button>
@@ -131,7 +122,7 @@ const RatingDetail = (props) => {
                         <div style={{marginTop:30}}>
                             <input type="range" name="slider" min="0" max="5" step="1" defaultValue={3}
                             onChange = {(e)=>setVotedScore(e.target.value)}/>
-                            <label for="slider">{votedScore}</label>
+                            <label htmlFor="slider">{votedScore}</label>
                         </div>
                         <div style={{marginTop:30}}>
                             <button>Submit</button>

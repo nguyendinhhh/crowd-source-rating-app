@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react';
+import { React, useState } from 'react';
 import axios from 'axios';
 import { Link, navigate } from '@reach/router';
 import Navbar from '../components/Navbar';
@@ -23,12 +23,9 @@ const Login = (props) => {
                 },
             )
             .then((res) => {
-                console.log(res,);
-                console.log(res.data);
                 navigate("/");
             })
             .catch((err) => {
-                console.log(err.response.data);
                 setErrors(err.response.data.message);
             });
     }
@@ -43,28 +40,30 @@ const Login = (props) => {
                 <form onSubmit={login}>
                     <div>
                         <table>
-                            <tr>
-                                <td><label>SJSU ID</label></td>
-                                <td>
-                                    <input
-                                        type="text"
-                                        name="sjsuid"
-                                        value={sjsuid}
-                                        onChange={(e) => setSjsuid(e.target.value)}
-                                    />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label>Password</label></td>
-                                <td>
-                                    <input
-                                        type="password"
-                                        name="password"
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                    />
-                                </td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td><label>SJSU ID</label></td>
+                                    <td>
+                                        <input
+                                            type="text"
+                                            name="sjsuid"
+                                            value={sjsuid}
+                                            onChange={(e) => setSjsuid(e.target.value)}
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label>Password</label></td>
+                                    <td>
+                                        <input
+                                            type="password"
+                                            name="password"
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                        />
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
 

@@ -1,6 +1,6 @@
-import { React, useEffect, useState } from 'react';
+import { React, useState } from 'react';
 import axios from 'axios';
-import { Link, navigate } from '@reach/router';
+import { navigate } from '@reach/router';
 import Navbar from '../components/Navbar';
 
 const Create = (props) => {
@@ -27,7 +27,7 @@ const Create = (props) => {
     const optionHandler = (e, index) => {
         const {name, value} = e.target;
         const list = [...options];
-        list [index][name] = value;
+        list[index][name] = value;
         setOptions(list);
     };
 
@@ -50,12 +50,10 @@ const Create = (props) => {
         
         axios.post("http://localhost:8000/api/polls/create", {pollQuestion, options}, {withCredentials: true})
             .then((res) => {
-                console.log(res);
-                console.log(res.data);
                 navigate("/manage");
             })
             .catch((err)=>{
-                console.log(err);
+                console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach
                 setError(err.response.data.errors)
             })
     }
@@ -64,17 +62,15 @@ const Create = (props) => {
         e.preventDefault();
         axios.post("http://localhost:8000/api/ratings/create", {ratingQuestion, lifespan}, {withCredentials: true})
             .then((res) => {
-                console.log(res);
-                console.log(res.data);
                 navigate("/manage");
             })
             .catch((err)=>{
-                console.log(err);
+                console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach
                 setError(err.response.data.errors);
             })
     }
 
-    if(type == "poll"){
+    if(type === "poll"){
         return(
             <div className='wrapper'>
                 <div className='bg'></div>
