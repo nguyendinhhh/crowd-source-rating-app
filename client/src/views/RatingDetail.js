@@ -1,11 +1,7 @@
 import { React, useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link, navigate } from '@reach/router';
 import Navbar from '../components/Navbar';
-import StepRangeSlider from 'react-step-range-slider'
 import { Bar } from "react-chartjs-2";
-import { Chart as ChartJS } from 'chart.js/auto'
-import { Chart }            from 'react-chartjs-2'
 
 const RatingDetail = (props) => {
     const {ratingid} = props;
@@ -65,7 +61,7 @@ const RatingDetail = (props) => {
             console.log(err);
             console.log("err.response:", err.response.data);
             setError(err.response.data.message);
-            if(err.response.data.message != "You must be logged in to perform this operation"){
+            if(err.response.data.message !== "You must be logged in to perform this operation"){
                 setFlag(1)   
             }
         })

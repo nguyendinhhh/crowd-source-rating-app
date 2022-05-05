@@ -1,6 +1,5 @@
-import { React, useEffect, useState } from 'react';
+import { React, useState } from 'react';
 import axios from 'axios';
-import { Link, navigate } from '@reach/router';
 import Navbar from '../components/Navbar';
 
 const Forget = (props) => {
@@ -38,7 +37,7 @@ const Forget = (props) => {
     const checkAnswer = (event)=>{
         event.preventDefault();
         setErrors("")
-        if(securityAnswer == user.securityAnswer){
+        if(securityAnswer === user.securityAnswer){
             setCorrectAnswerFlag(true)
         }
         else{

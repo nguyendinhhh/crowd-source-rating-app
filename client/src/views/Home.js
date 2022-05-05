@@ -2,7 +2,6 @@ import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from '@reach/router';
 import Navbar from '../components/Navbar';
-import Moment from 'react-moment';
 import moment from 'moment';
 moment().format();
 
@@ -23,7 +22,6 @@ const Home = (props) => {
             })
     }, [])
 
-    
     
     useEffect(() => {
         axios.get("http://localhost:8000/api/allRatings")

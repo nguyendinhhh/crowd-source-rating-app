@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link, navigate} from '@reach/router';
+import { navigate} from '@reach/router';
 
 const Navbar = (props) => {
 
@@ -46,7 +46,7 @@ const Navbar = (props) => {
     }, [])
 
     // check if we can find any logged in user 
-    if(Object.keys(user).length != 0){
+    if(Object.keys(user).length !== 0){
         return(
             <div className='navbar'>
                 <h1>Rate My SJSU</h1>

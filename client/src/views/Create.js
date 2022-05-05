@@ -1,6 +1,6 @@
-import { React, useEffect, useState } from 'react';
+import { React, useState } from 'react';
 import axios from 'axios';
-import { Link, navigate } from '@reach/router';
+import { navigate } from '@reach/router';
 import Navbar from '../components/Navbar';
 
 const Create = (props) => {
@@ -27,7 +27,7 @@ const Create = (props) => {
     const optionHandler = (e, index) => {
         const {name, value} = e.target;
         const list = [...options];
-        list [index][name] = value;
+        list[index][name] = value;
         setOptions(list);
     };
 
@@ -74,7 +74,7 @@ const Create = (props) => {
             })
     }
 
-    if(type == "poll"){
+    if(type === "poll"){
         return(
             <div className='wrapper'>
                 <div className='bg'></div>
