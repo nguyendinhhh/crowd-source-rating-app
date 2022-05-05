@@ -39,7 +39,7 @@ const Navbar = (props) => {
                 setUser(res.data);
             })
             .catch((err) => {
-                console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach
+                console.log("Unauthorized User!"); //console.log(err); avoid error details breach
             })
     }, [])
 

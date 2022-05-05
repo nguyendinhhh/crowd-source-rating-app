@@ -2,6 +2,8 @@ import { React, useEffect, useState } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
 import { Bar } from "react-chartjs-2";
+import { Chart as ChartJS } from 'chart.js/auto'
+import { Chart } from 'react-chartjs-2'
 
 const RatingDetail = (props) => {
     const {ratingid} = props;
@@ -74,7 +76,7 @@ const RatingDetail = (props) => {
             setError(res.data.message)
             setLikedFlag(1);
         })
-        .catch((err)=>{
+            .catch((err) => {
             console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach;
             setError(err.response.data.message);
         })
@@ -94,7 +96,7 @@ const RatingDetail = (props) => {
                         <div style={{marginTop:30}}>
                             <input type="range" name="slider" min="0" max="5" step="1" defaultValue={3}
                             onChange = {(e)=>setVotedScore(e.target.value)}/>
-                            <label for="slider">{votedScore}</label>
+                            <label htmlFor="slider">{votedScore}</label>
                         </div>
                         <div style={{marginTop:30}}>
                             <button>Submit</button>
@@ -120,7 +122,7 @@ const RatingDetail = (props) => {
                         <div style={{marginTop:30}}>
                             <input type="range" name="slider" min="0" max="5" step="1" defaultValue={3}
                             onChange = {(e)=>setVotedScore(e.target.value)}/>
-                            <label for="slider">{votedScore}</label>
+                            <label htmlFor="slider">{votedScore}</label>
                         </div>
                         <div style={{marginTop:30}}>
                             <button>Submit</button>
