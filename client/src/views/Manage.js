@@ -14,11 +14,10 @@ const Manage = (props) => {
             { withCredentials: true }
         )
             .then((res) => {
-                console.log(res.data);
                 setUser(res.data);
             })
             .catch((err) => {
-                console.log(err);
+                console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach
             })
     }, [])
 
@@ -31,7 +30,7 @@ const Manage = (props) => {
                 setPollList(res.data)
             })
             .catch((err) => {
-                console.log(err);
+                console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach
             })
         axios.get(`http://localhost:8000/api/ratings/allratingsbycreator/${user.sjsuid}`,
             { withCredentials: true }
@@ -41,7 +40,7 @@ const Manage = (props) => {
                 setRatingList(res.data)
             })
             .catch((err) => {
-                console.log(err);
+                console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach
             })
     }, [user])
 
@@ -52,7 +51,7 @@ const Manage = (props) => {
                 console.log(res.data);
                 setPollList(pollList.filter((poll, index) => poll._id !== pollid))
             })
-            .catch((err) => console.log(err))
+            .catch((err) => console.log("Oops, something went wrong!")); //console.log(err); avoid error details breach
     }
 
     const deleteRating = (ratingid) => {
@@ -62,7 +61,7 @@ const Manage = (props) => {
                 console.log(res.data);
                 setRatingList(ratingList.filter((rating, index) => rating._id !== ratingid))
             })
-            .catch((err) => console.log(err))
+            .catch((err) => console.log("Oops, something went wrong!")); //console.log(err); avoid error details breach
     }
 
     return (

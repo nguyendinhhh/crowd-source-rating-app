@@ -32,7 +32,7 @@ const PollDetail = (props) => {
                 setVotesList(newVotesList)
             })
             .catch((err) => {
-                console.log(err)
+                console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach
             })
     }, [flag])
 
@@ -59,8 +59,7 @@ const PollDetail = (props) => {
             setFlag(1);
         })
         .catch((err)=>{
-            console.log(err);
-            console.log("err.response:", err.response.data);
+            console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach;
             setError(err.response.data.message);
             if(err.response.data.message !== "You must be logged in to perform this operation"){
                 setFlag(1)   

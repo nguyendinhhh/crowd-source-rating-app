@@ -50,12 +50,10 @@ const Create = (props) => {
         
         axios.post("http://localhost:8000/api/polls/create", {pollQuestion, options}, {withCredentials: true})
             .then((res) => {
-                console.log(res);
-                console.log(res.data);
                 navigate("/manage");
             })
             .catch((err)=>{
-                console.log(err);
+                console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach
                 setError(err.response.data.errors)
             })
     }
@@ -64,12 +62,10 @@ const Create = (props) => {
         e.preventDefault();
         axios.post("http://localhost:8000/api/ratings/create", {ratingQuestion, lifespan}, {withCredentials: true})
             .then((res) => {
-                console.log(res);
-                console.log(res.data);
                 navigate("/manage");
             })
             .catch((err)=>{
-                console.log(err);
+                console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach
                 setError(err.response.data.errors);
             })
     }

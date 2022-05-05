@@ -21,15 +21,13 @@ const Navbar = (props) => {
             },
         )
         .then((res) => {
-            console.log(res);
-            console.log(res.data);
             if(setUser){
                 setUser({});
             }
             navigate("/");
         })
         .catch((err) => {
-            console.log(err);
+            console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach
         });
     }
 
@@ -41,7 +39,7 @@ const Navbar = (props) => {
                 setUser(res.data);
             })
             .catch((err) => {
-                console.log(err);
+                console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach
             })
     }, [])
 

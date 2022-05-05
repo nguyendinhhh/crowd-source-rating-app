@@ -23,12 +23,9 @@ const Login = (props) => {
                 },
             )
             .then((res) => {
-                console.log(res,);
-                console.log(res.data);
                 navigate("/");
             })
             .catch((err) => {
-                console.log(err.response.data);
                 setErrors(err.response.data.message);
             });
     }

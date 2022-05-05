@@ -20,7 +20,6 @@ const RatingDetail = (props) => {
     useEffect(() => {
         axios.get(`http://localhost:8000/api/ratings/${ratingid}`)
             .then((res) => {
-                console.log(res.data);
                 setRating(res.data);
                 setScores(res.data.scores);
                 res.data.scores.forEach((score)=>{
@@ -31,7 +30,7 @@ const RatingDetail = (props) => {
                 setVotesList(newVotesList)
             })
             .catch((err) => {
-                console.log(err)
+                console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach
             })
     }, [flag, likedFlag])
 
@@ -53,13 +52,10 @@ const RatingDetail = (props) => {
             { withCredentials: true }
         )
         .then((res)=>{
-            console.log(res);
-            console.log(res.data);
             setFlag(1);
         })
         .catch((err)=>{
-            console.log(err);
-            console.log("err.response:", err.response.data);
+            console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach;
             setError(err.response.data.message);
             if(err.response.data.message !== "You must be logged in to perform this operation"){
                 setFlag(1)   
@@ -75,14 +71,11 @@ const RatingDetail = (props) => {
             {withCredentials: true}
         )
         .then((res)=>{
-            console.log(res);
-            console.log(res.data);
             setError(res.data.message)
             setLikedFlag(1);
         })
         .catch((err)=>{
-            console.log(err);
-            console.log("err.response:", err.response.data);
+            console.log("Oops, something went wrong!"); //console.log(err); avoid error details breach;
             setError(err.response.data.message);
         })
     }

@@ -3,6 +3,13 @@ import axios from 'axios';
 import { navigate } from '@reach/router';
 import Navbar from '../components/Navbar';
 
+const questions = [
+    { label: "Which is your favorite class?", value: "Which is your favorite class?" },
+    { label: "In which city were you born?", value: "In which city were you born?" },
+    { label: "What's the name of your first pet?", value: "What's the name of your first pet?" },
+    { label: "What's your childhood best friend's name?", value: "What's your childhood best friend's name?"},
+];
+
 const Register = (props) => {
 
     const [errors, setErrors] = useState("");
@@ -14,13 +21,6 @@ const Register = (props) => {
         password: "",
         confirmPassword: "",
     });
-
-    const questions = [
-        { label: "Which is your favorite class?", value: "Which is your favorite class?" },
-        { label: "In which city were you born?", value: "In which city were you born?" },
-        { label: "What's the name of your first pet?", value: "What's the name of your first pet?" },
-        { label: "What's your childhood best friend's name?", value: "What's your childhood best friend's name?"},
-    ];
 
     // dropdown component, this can probably be useable 
     const Dropdown = ({ name, value, options, onChange }) => {
