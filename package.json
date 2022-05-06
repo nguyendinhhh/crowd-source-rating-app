@@ -1,5 +1,21 @@
 {
   "dependencies": {
+    "moment": "^2.29.3",
     "react-step-range-slider": "^1.4.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.17.10",
+    "babel-jest": "^28.0.3",
+    "jest": "^27.5.1",
+    "jest-mock-req-res": "^1.0.2"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
   }
+  
 }

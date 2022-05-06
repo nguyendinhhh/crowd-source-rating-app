@@ -103,7 +103,7 @@ module.exports = {
             })
             .catch((err)=>{
                 console.log(err);
-                res.status(400).json({ message: "Invlaid SJSUID" });
+                res.status(400).json({ message: "Invalid SJSUID" });
             })
     },
 
